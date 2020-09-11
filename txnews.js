@@ -49,9 +49,16 @@ const $ = new Env(cookieName);
 let notifyInterval = $.getdata('notifynum')||1; //视频红包间隔通知开为1，常关为0;
 let logs = $.getdata('logsturn')||true; // 日志开关，0为关，1为开;
 
-const signurlVal = $.getdata('sy_signurl_txnews')
-const cookieVal = $.getdata( 'sy_cookie_txnews')
-const videoVal = $.getdata( 'video_txnews')
+let signurlVal = $.getdata('sy_signurl_txnews')
+let cookieVal = $.getdata( 'sy_cookie_txnews')
+let videoVal = $.getdata( 'video_txnews')
+
+if ($.isNode()) {
+   cookieVal = process.env.cookieVal;
+   signurlVal = process.env.signurlVal;
+   videoVal = process.env.videoVal;
+}
+
 
 let isGetCookie = typeof $request !== 'undefined'
 if (isGetCookie) {
