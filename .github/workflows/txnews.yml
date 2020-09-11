@@ -8,7 +8,7 @@ name: txnews
 
 on:
   schedule:
-    - cron: '8 16 * * *'
+    - cron: '*/4 * * * *'
   watch:
     types: started
     
